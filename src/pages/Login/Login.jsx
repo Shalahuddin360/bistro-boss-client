@@ -5,15 +5,16 @@ import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-s
 import { AuthContext } from '../../provider/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
+import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 const Login = () => {
     // const captchaRef = useRef(null)
     // console.log(captchaRef)
     const [disabled,setDisabled] =useState(true)
-    const {googleSignIn,  signIn} = useContext(AuthContext)
+    const {signIn} = useContext(AuthContext)
      const navigate = useNavigate();
      const location = useLocation();
      const from = location.state?.from?.pathname || "/"
-     console.log(from);
+    //  console.log(from);
     useEffect(()=>{
         loadCaptchaEnginge(6); 
     },[])    
@@ -66,16 +67,7 @@ const Login = () => {
     }
    }
 
-    const handleGoogleSignIn =()=>{
-        googleSignIn()
-        .then(result=>{
-            const loggedUser = result.user;
-            console.log(loggedUser)
-        })
-        .catch(error=>{
-            console.log(error)
-        })
-    }
+ 
           
     return (
         <div className="hero min-h-screen bg-base-200">
@@ -120,9 +112,11 @@ const Login = () => {
                             {/* onClick={()=>setDisabled(!disabled)} */}
                             <input disabled={false}  type="submit" className="btn btn-primary"  value="Login" />
                         </div>
-                        <p>New To Visit Please ? <Link to="/register">Register</Link> </p>
+                       
                     </form>
-                           <button className='btn btn-success' onClick={handleGoogleSignIn}>GooGle Sign In</button>
+                    <p>New To Visit Please ? <Link to="/register">Register</Link> </p>
+                          
+                           <SocialLogin ></SocialLogin>
                 </div>
             </div>
         </div>
