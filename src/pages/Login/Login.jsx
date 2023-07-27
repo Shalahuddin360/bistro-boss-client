@@ -1,10 +1,9 @@
 
-import { useContext } from 'react';
-import { useEffect, useState } from 'react';
-import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
-import { AuthContext } from '../../provider/AuthProvider';
+import { useContext, useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import Swal from 'sweetalert2'
+import { LoadCanvasTemplate, loadCaptchaEnginge, validateCaptcha } from 'react-simple-captcha';
+import Swal from 'sweetalert2';
+import { AuthContext } from '../../provider/AuthProvider';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 const Login = () => {
     // const captchaRef = useRef(null)
@@ -110,7 +109,7 @@ const Login = () => {
                         {/* TODO: make button disable for captcha */}
                         <div className="form-control mt-6">
                             {/* onClick={()=>setDisabled(!disabled)} */}
-                            <input disabled={false}  type="submit" className="btn btn-primary"  value="Login" />
+                               <input disabled={false}  type="submit" className="btn btn-primary"  value="Login" />
                         </div>
                        
                     </form>

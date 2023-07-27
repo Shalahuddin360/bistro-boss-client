@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import { AuthContext } from "../../provider/AuthProvider";
-import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import useCart from "../../hooks/useCart";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const FoodCard = ({item}) => {
     const {name,recipe,image,price,_id} = item;
@@ -25,7 +25,7 @@ const FoodCard = ({item}) => {
 
             }
             console.log(cartItem)
-            fetch('http://localhost:5000/carts',{
+            fetch('https://bistro-boss-server-omega.vercel.app/carts',{
                 method: 'POST',
                 headers:{
                     "content-type" : "application/json",

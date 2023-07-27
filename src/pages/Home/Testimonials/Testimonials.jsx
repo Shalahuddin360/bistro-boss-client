@@ -6,15 +6,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 // import required modules
-import { Navigation } from "swiper";
+import { Rating } from '@smastrom/react-rating';
 import { useEffect, useState } from "react";
-import { Rating } from '@smastrom/react-rating'
+import { Navigation } from "swiper";
 
-import '@smastrom/react-rating/style.css'
+import '@smastrom/react-rating/style.css';
 const Testimonials = () => {
     const [reviews, setReviews] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch('https://bistro-boss-server-omega.vercel.app/reviews')
             .then(res => res.json())
             .then(data => {
                 setReviews(data)

@@ -1,10 +1,10 @@
 
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { AuthContext } from "../../../provider/AuthProvider";
-import Swal from "sweetalert2";
-import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../../provider/AuthProvider";
+import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
 
 const SignUp = () => {
     const { register, handleSubmit, reset,  formState: { errors } } = useForm();
@@ -21,7 +21,7 @@ const SignUp = () => {
                 // console.log('user profile info updated') database users save 
                 const saveUser = {name : data.name,email:data.email}
                 console.log(saveUser)
-                fetch('http://localhost:5000/users',{
+                fetch('https://bistro-boss-server-omega.vercel.app/users',{
                     method : 'POST',
                     headers : {
                         "content-type" : "application/json"

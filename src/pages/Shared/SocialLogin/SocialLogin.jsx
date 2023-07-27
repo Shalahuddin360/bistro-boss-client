@@ -1,8 +1,8 @@
 
 import { useContext } from 'react';
 import { FaGoogle } from 'react-icons/fa';
-import { AuthContext } from '../../../provider/AuthProvider';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../provider/AuthProvider';
 
 const SocialLogin = () => {
     const { googleSignIn } = useContext(AuthContext)
@@ -15,7 +15,7 @@ const SocialLogin = () => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
                 const saveUser = {name:loggedUser.displayName , email:loggedUser.email}
-                fetch('http://localhost:5000/users', {
+                fetch('https://bistro-boss-server-omega.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         "content-type": "application/json"
